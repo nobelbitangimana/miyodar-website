@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Miyodar Technology</title>
+  <style>
+    :root {
+      --blue: #0056b3;
+      --orange: #ff7f00;
+      --light-bg: #f7f9fc;
+      --dark-text: #333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; color:var(--dark-text); background:var(--light-bg); }
+    a { text-decoration:none; color:inherit; }
+    header { background:var(--blue); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    nav a { margin-left:1rem; color:white; font-weight:600; }
+    .hero {
+      background:var(--orange);
+      color:white;
+      padding:4rem 2rem;
+      text-align:center;
+    }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.2rem; margin-bottom:2rem; }
+    .btn {
+      background:white; color:var(--orange);
+      padding:.8rem 1.5rem;
+      border:none;
+      border-radius:4px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .stats {
+      display:flex; justify-content:center; gap:2rem; margin-top:2rem;
+    }
+    .stats .item { text-align:center; }
+    .stats .item h2 { font-size:2rem; margin-bottom:.5rem; }
+    section { padding:3rem 2rem; max-width:1000px; margin:auto; }
+    .services-grid, .case-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:2rem;
+      margin-top:2rem;
+    }
+    .card {
+      background:white; padding:1.5rem; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h3 { color:var(--blue); margin-bottom:.5rem; }
+    .footer {
+      background:var(--blue);
+      color:white; text-align:center; padding:2rem;
+      margin-top:3rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h2 style="color:white;">Miyodar Technology</h2>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Your reliable partner in digital transformation</h1>
+  <p>Empowering Burundian businesses with efficient, innovative software.</p>
+  <button class="btn">Book Consultation</button>
+  <div class="stats">
+    <div class="item"><h2>—</h2><p>Years in Market</p></div>
+    <div class="item"><h2>—</h2><p>Clients</p></div>
+    <div class="item"><h2>—</h2><p>Projects</p></div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="card"><h3>Custom Software</h3><p>Tailored solutions to streamline your business workflows.</p></div>
+    <div class="card"><h3>Data Management</h3><p>Secure storage & real‑time access to your valuable data.</p></div>
+    <div class="card"><h3>Communication Platforms</h3><p>Email, SMS & chat tools to connect with your customers.</p></div>
+    <div class="card"><h3>Workflow Automation</h3><p>Reduce manual tasks and boost team productivity.</p></div>
+    <div class="card"><h3>UI/UX Design</h3><p>Human-centred design to make your apps simple and appealing.</p></div>
+    <div class="card"><h3>Staff Augmentation</h3><p>Extend your team with our skilled African developers.</p></div>
+  </div>
+</section>
+
+<section id="cases">
+  <h2>Case Studies</h2>
+  <div class="case-grid">
+    <div class="card"><h3>Enterprise Dashboard</h3><p>High‑load analytics platform & real‑time reporting.</p></div>
+    <div class="card"><h3>Customer Messaging App</h3><p>Multi‑channel communication tool for SMEs.</p></div>
+    <div class="card"><h3>Inventory Automation</h3><p>Automated stock & order management system.</p></div>
+    <!-- Add actual details later -->
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>Miyodar Technology is a Burundi-based software company driven by excellence, creativity and passion. We build relevant, reliable and innovative tools that help businesses manage data, communicate with customers and streamline operations. Our mission: be the most efficient software provider in Burundi.</p>
+  <div style="margin-top:2rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+    <img src="african-people-1.jpg" alt="African team" style="width:200px;border-radius:8px;">
+    <img src="african-people-2.jpg" alt="African developers" style="width:200px;border-radius:8px;">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:info@miyodar.bi">info@miyodar.bi</a> | Phone: +257‑XXXXXXX</p>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2025 Miyodar Technology – Excellence, Creativity & Passion</p>
+</footer>
+
+</body>
+</html>
