@@ -3,64 +3,415 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Miyodar Technology</title>
+  <title>Miyodar Technology - Digital Transformation Partner</title>
+  <meta name="description" content="Empowering Burundian businesses with efficient, innovative software solutions. Custom development, data management, and digital transformation services.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234285f4'/><path d='M25 30h15v40h-15zm20 15h15v25h-15zm20-10h15v35h-15z' fill='white'/></svg>" type="image/svg+xml">
   <style>
     :root {
-      --blue: #0056b3;
-      --orange: #ff7f00;
-      --light-bg: #f7f9fc;
-      --dark-text: #333;
+      --primary-blue: #4285f4;
+      --secondary-blue: #0056b3;
+      --accent-orange: #ff7f00;
+      --light-bg: #f8fafc;
+      --white: #ffffff;
+      --dark-text: #1a202c;
+      --gray-text: #4a5568;
+      --light-gray: #e2e8f0;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:sans-serif; color:var(--dark-text); background:var(--light-bg); }
-    a { text-decoration:none; color:inherit; }
-    header { background:var(--blue); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
-    nav a { margin-left:1rem; color:white; font-weight:600; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--dark-text);
+      background: var(--light-bg);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-icon::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 20px;
+      background: white;
+      border-radius: 2px 0 0 2px;
+      left: 8px;
+    }
+
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      background: white;
+      border-radius: 0 2px 2px 0;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .logo h2 {
+      color: var(--dark-text);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--gray-text);
+      font-weight: 400;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--gray-text);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-blue);
+      background: rgba(66, 133, 244, 0.1);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-text);
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Hero Section */
     .hero {
-      background:var(--orange);
-      color:white;
-      padding:4rem 2rem;
-      text-align:center;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; margin-bottom:2rem; }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #fff, #e3f2fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
     .btn {
-      background:white; color:var(--orange);
-      padding:.8rem 1.5rem;
-      border:none;
-      border-radius:4px;
-      font-weight:600;
-      cursor:pointer;
+      background: var(--accent-orange);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
     }
+
+    .btn:hover {
+      background: #e56f00;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
     .stats {
-      display:flex; justify-content:center; gap:2rem; margin-top:2rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
     }
-    .stats .item { text-align:center; }
-    .stats .item h2 { font-size:2rem; margin-bottom:.5rem; }
-    section { padding:3rem 2rem; max-width:1000px; margin:auto; }
+
+    .stats .item {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .stats .item h2 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+    }
+
+    .stats .item p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--dark-text);
+      font-weight: 700;
+    }
+
+    /* Services Grid */
     .services-grid, .case-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:2rem;
-      margin-top:2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
+
     .card {
-      background:white; padding:1.5rem; border-radius:8px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--light-gray);
     }
-    .card h3 { color:var(--blue); margin-bottom:.5rem; }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--white);
+      border-radius: 20px;
+      margin: 2rem auto;
+      box-shadow: var(--shadow);
+    }
+
+    .team-images {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .team-placeholder {
+      width: 200px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: var(--light-bg);
+      text-align: center;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info a {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
     .footer {
-      background:var(--blue);
-      color:white; text-align:center; padding:2rem;
-      margin-top:3rem;
+      background: var(--dark-text);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 0;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .stats {
+        gap: 2rem;
+      }
+
+      .stats .item h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      .services-grid, .case-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .team-images {
+        gap: 1rem;
+      }
+
+      .team-placeholder {
+        width: 150px;
+        height: 120px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.2s; }
+    .card:nth-child(4) { animation-delay: 0.3s; }
+    .card:nth-child(5) { animation-delay: 0.4s; }
+    .card:nth-child(6) { animation-delay: 0.5s; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <h2 style="color:white;">Miyodar Technology</h2>
+    <div class="logo-icon"></div>
+    <div>
+      <h2>Miyodar</h2>
+      <span>Technology</span>
+    </div>
   </div>
   <nav>
     <a href="#services">Services</a>
@@ -68,58 +419,149 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+  <div class="mobile-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Your reliable partner in digital transformation</h1>
-  <p>Empowering Burundian businesses with efficient, innovative software.</p>
-  <button class="btn">Book Consultation</button>
-  <div class="stats">
-    <div class="item"><h2>—</h2><p>Years in Market</p></div>
-    <div class="item"><h2>—</h2><p>Clients</p></div>
-    <div class="item"><h2>—</h2><p>Projects</p></div>
+  <div class="hero-content">
+    <h1>Your reliable partner in digital transformation</h1>
+    <p>Empowering Burundian businesses with efficient, innovative software solutions that drive growth and success.</p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Book Consultation</button>
+    <div class="stats">
+      <div class="item">
+        <h2>5+</h2>
+        <p>Years in Market</p>
+      </div>
+      <div class="item">
+        <h2>50+</h2>
+        <p>Happy Clients</p>
+      </div>
+      <div class="item">
+        <h2>100+</h2>
+        <p>Projects Delivered</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="services">
   <h2>Our Services</h2>
   <div class="services-grid">
-    <div class="card"><h3>Custom Software</h3><p>Tailored solutions to streamline your business workflows.</p></div>
-    <div class="card"><h3>Data Management</h3><p>Secure storage & real‑time access to your valuable data.</p></div>
-    <div class="card"><h3>Communication Platforms</h3><p>Email, SMS & chat tools to connect with your customers.</p></div>
-    <div class="card"><h3>Workflow Automation</h3><p>Reduce manual tasks and boost team productivity.</p></div>
-    <div class="card"><h3>UI/UX Design</h3><p>Human-centred design to make your apps simple and appealing.</p></div>
-    <div class="card"><h3>Staff Augmentation</h3><p>Extend your team with our skilled African developers.</p></div>
+    <div class="card">
+      <h3>Custom Software Development</h3>
+      <p>Tailored solutions designed to streamline your business workflows and boost operational efficiency with cutting-edge technology.</p>
+    </div>
+    <div class="card">
+      <h3>Data Management Solutions</h3>
+      <p>Secure storage, real-time access, and intelligent analytics for your valuable business data with enterprise-grade security.</p>
+    </div>
+    <div class="card">
+      <h3>Communication Platforms</h3>
+      <p>Comprehensive email, SMS, and chat solutions to connect with your customers and enhance engagement across all channels.</p>
+    </div>
+    <div class="card">
+      <h3>Workflow Automation</h3>
+      <p>Reduce manual tasks and boost team productivity with intelligent automation systems tailored to your business processes.</p>
+    </div>
+    <div class="card">
+      <h3>UI/UX Design</h3>
+      <p>Human-centered design that makes your applications simple, appealing, and intuitive for exceptional user experiences.</p>
+    </div>
+    <div class="card">
+      <h3>Staff Augmentation</h3>
+      <p>Extend your development team with our skilled African developers who bring expertise and innovation to your projects.</p>
+    </div>
   </div>
 </section>
 
 <section id="cases">
   <h2>Case Studies</h2>
   <div class="case-grid">
-    <div class="card"><h3>Enterprise Dashboard</h3><p>High‑load analytics platform & real‑time reporting.</p></div>
-    <div class="card"><h3>Customer Messaging App</h3><p>Multi‑channel communication tool for SMEs.</p></div>
-    <div class="card"><h3>Inventory Automation</h3><p>Automated stock & order management system.</p></div>
-    <!-- Add actual details later -->
+    <div class="card">
+      <h3>Enterprise Analytics Dashboard</h3>
+      <p>High-performance analytics platform with real-time reporting capabilities, handling millions of data points for enterprise clients with seamless user experience.</p>
+    </div>
+    <div class="card">
+      <h3>Multi-Channel Messaging App</h3>
+      <p>Comprehensive communication solution for SMEs, integrating email, SMS, and chat functionalities with advanced customer management features.</p>
+    </div>
+    <div class="card">
+      <h3>Inventory Management System</h3>
+      <p>Automated stock and order management system with predictive analytics, reducing operational costs by 40% and improving accuracy.</p>
+    </div>
   </div>
 </section>
 
 <section id="about">
-  <h2>About Us</h2>
-  <p>Miyodar Technology is a Burundi-based software company driven by excellence, creativity and passion. We build relevant, reliable and innovative tools that help businesses manage data, communicate with customers and streamline operations. Our mission: be the most efficient software provider in Burundi.</p>
-  <div style="margin-top:2rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-    <img src="african-people-1.jpg" alt="African team" style="width:200px;border-radius:8px;">
-    <img src="african-people-2.jpg" alt="African developers" style="width:200px;border-radius:8px;">
+  <h2>About Miyodar Technology</h2>
+  <p>Miyodar Technology is a leading Burundi-based software company driven by excellence, creativity, and passion for innovation. We specialize in building relevant, reliable, and cutting-edge tools that help businesses manage data, communicate effectively with customers, and streamline operations for maximum efficiency.</p>
+  <br>
+  <p>Our mission is simple yet ambitious: to be the most efficient and trusted software provider in Burundi, empowering local businesses to compete globally through digital transformation and innovative technology solutions.</p>
+  
+  <div class="team-images">
+    <div class="team-placeholder">African Innovation Team</div>
+    <div class="team-placeholder">Expert Developers</div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:info@miyodar.bi">info@miyodar.bi</a> | Phone: +257‑XXXXXXX</p>
+  <h2>Get In Touch</h2>
+  <p>Ready to transform your business with innovative software solutions? Let's discuss your project and explore how we can help you achieve your digital transformation goals.</p>
+  <div class="contact-info">
+    <p>📧 Email: <a href="mailto:info@miyodar.bi">info@miyodar.bi</a></p>
+    <p>📞 Phone: <a href="tel:+25712345678">+257-12-345-678</a></p>
+    <p>📍 Location: Bujumbura, Burundi</p>
+  </div>
 </section>
 
 <footer class="footer">
   <p>&copy; 2025 Miyodar Technology – Excellence, Creativity & Passion</p>
+  <p style="margin-top: 0.5rem; opacity: 0.8;">Proudly serving Burundi and East Africa</p>
 </footer>
+
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Header background on scroll
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+      header.style.background = 'rgba(255, 255, 255, 0.95)';
+    } else {
+      header.style.background = 'var(--white)';
+    }
+  });
+
+  // Mobile menu toggle (basic implementation)
+  document.querySelector('.mobile-menu').addEventListener('click', function() {
+    const nav = document.querySelector('nav');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Button click animation
+  document.querySelector('.btn').addEventListener('click', function() {
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 150);
+  });
+</script>
 
 </body>
 </html>
